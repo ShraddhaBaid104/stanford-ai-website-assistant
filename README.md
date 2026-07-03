@@ -1,5 +1,11 @@
 # Stanford AI Website Assistant
 
+![Python](https://img.shields.io/badge/Python-3.12-blue)
+![LangChain](https://img.shields.io/badge/LangChain-1.x-green)
+![OpenAI](https://img.shields.io/badge/OpenAI-GPT--4.1--mini-black)
+![ChromaDB](https://img.shields.io/badge/VectorDB-Chroma-orange)
+![Status](https://img.shields.io/badge/Status-In%20Development-brightgreen)
+![License](https://img.shields.io/badge/License-MIT-blue)
 > A production-quality AI-powered website support assistant built using Retrieval-Augmented Generation (RAG), LangChain, OpenAI, ChromaDB, and modern AI engineering practices.
 
 ---
@@ -13,6 +19,20 @@ Instead of relying solely on a Large Language Model (LLM), the assistant retriev
 The project emphasizes **production-ready architecture**, modularity, scalability, and maintainability rather than tutorial-style implementation.
 
 ---
+## Why This Project?
+
+Many AI chatbots simply send user prompts directly to an LLM, often resulting in hallucinations or outdated responses.
+
+This project demonstrates how to build a production-quality Retrieval-Augmented Generation (RAG) system that answers questions using trusted Stanford University website content.
+
+The focus is on applying modern AI engineering practices, including:
+
+- Modular software architecture
+- Incremental document ingestion
+- Vector search
+- Grounded response generation
+- Production-ready code organization
+- Scalability and maintainability
 
 ## Features
 
@@ -264,6 +284,26 @@ python -m app.cli
 ```
 
 ---
+## Current Status
+
+### Sprint 1 — Complete
+
+- Website crawler
+- HTML parser
+- Content cleaner
+- Recursive chunking
+- Incremental embedding pipeline
+- Persistent ChromaDB
+- Semantic retrieval
+- Prompt builder
+- GPT-powered chatbot
+
+### Sprint 2 — In Progress
+
+- Structured logging
+- Performance metrics
+- Conversation memory
+- FastAPI backend
 
 ## Roadmap
 
