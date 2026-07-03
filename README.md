@@ -9,6 +9,7 @@
 > A production-quality AI-powered website support assistant built using Retrieval-Augmented Generation (RAG), LangChain, OpenAI, ChromaDB, and modern AI engineering practices.
 
 ---
+![CI](https://github.com/ShraddhaBaid104/stanford-ai-website-assistant/actions/workflows/tests.yml/badge.svg)
 
 ## Project Overview
 
