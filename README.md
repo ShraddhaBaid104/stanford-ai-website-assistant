@@ -127,7 +127,37 @@ stanford-ai-assistant/
 ├── requirements.txt
 └── README.md
 ```
+## Architecture
 
+```mermaid
+flowchart TD
+
+A[Stanford Website]
+
+A --> B[Playwright Crawler]
+
+B --> C[HTML Parser]
+
+C --> D[Document Cleaner]
+
+D --> E[Chunk Builder]
+
+E --> F[OpenAI Embeddings]
+
+F --> G[Persistent ChromaDB]
+
+H[User Question] --> I[Retriever]
+
+I --> G
+
+I --> J[Prompt Builder]
+
+J --> K[GPT-4.1 Mini]
+
+K --> L[Grounded Answer]
+
+L --> M[Sources]
+```
 ---
 
 ## Technology Stack
