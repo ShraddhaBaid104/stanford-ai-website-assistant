@@ -149,5 +149,3 @@ class StanfordChatbot:
                 sources.append(url)
 
         return sources
-
-        )
