@@ -1,5 +1,5 @@
-from rag.retriever import StanfordRetriever
-from rag.prompt_builder import PromptBuilder
+from app.rag.retrievers.stanford_retriever import StanfordRetriever
+from app.rag.prompt_builder import PromptBuilder
 
 retriever = StanfordRetriever(k=3)
 

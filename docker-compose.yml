@@ -1,0 +1,71 @@
+
+services:
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: stanford-ai-api
+
+    command: >
+      uvicorn app.main:app
+      --host 0.0.0.0
+      --port 8000
+
+    ports:
+      - "8000:8000"
+
+    env_file:
+      - .env
+
+    depends_on:
+      redis:
+        condition: service_healthy
+
+    restart: unless-stopped
+
+    volumes:
+      - .:/app
+      - chroma_data:/app/vectorstore/chroma_db
+
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+    networks:
+      - stanford-network
+
+  redis:
+    image: redis:7-alpine
+
+    container_name: stanford-redis
+
+    ports:
+      - "6379:6379"
+
+    restart: unless-stopped
+
+    command: redis-server --appendonly yes
+
+    volumes:
+      - redis_data:/data
+
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+    networks:
+      - stanford-network
+
+volumes:
+  chroma_data:
+  redis_data:
+
+networks:
+  stanford-network:
+    driver: bridge

@@ -17,7 +17,7 @@ import hashlib
 import json
 from pathlib import Path
 from urllib.parse import urldefrag, urlparse
-from config import ALLOWED_DOMAINS
+from app.core.config import ALLOWED_DOMAINS
 
 # ==========================================================
 # JSON Utilities

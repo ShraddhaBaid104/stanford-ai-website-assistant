@@ -6,7 +6,7 @@ Utility script for inspecting the ChromaDB vector store.
 
 from chromadb import PersistentClient
 
-from config import (
+from app.core.config import (
     CHROMA_COLLECTION_NAME,
     CHROMA_DB_DIR,
 )

@@ -14,7 +14,7 @@ Responsibilities
 from langchain_core.documents import Document
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
-from config import (
+from app.core.config import (
     CLEANED_DOCUMENTS_FILE,
     CHUNKED_DOCUMENTS_FILE,
     CHUNK_SIZE,

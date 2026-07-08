@@ -2,7 +2,7 @@
 Command Line Interface for the Stanford AI Website Assistant.
 """
 
-from rag.chatbot import StanfordChatbot
+from app.rag import StanfordChatbot
 
 
 def main():

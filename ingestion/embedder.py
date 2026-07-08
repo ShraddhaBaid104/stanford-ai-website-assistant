@@ -20,7 +20,7 @@ from chromadb import PersistentClient
 from langchain_openai import OpenAIEmbeddings
 from langchain_core.documents import Document
 
-from config import (
+from app.core.config import (
     CHROMA_COLLECTION_NAME,
     CHROMA_DB_DIR,
     EMBEDDING_MODEL,

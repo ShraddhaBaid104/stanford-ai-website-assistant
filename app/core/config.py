@@ -26,7 +26,7 @@ if not OPENAI_API_KEY:
 # Project Root
 # --------------------------------------------------
 
-PROJECT_ROOT = Path(__file__).resolve().parent
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 # --------------------------------------------------
 # Data Directories
@@ -39,8 +39,17 @@ RAW_DATA_DIR = DATA_DIR / "raw"
 PROCESSED_DATA_DIR = DATA_DIR / "processed"
 
 VECTORSTORE_DIR = PROJECT_ROOT / "vectorstore"
+# --------------------------------------------------
+# ChromaDB
+# --------------------------------------------------
 
-CHROMA_DB_DIR = VECTORSTORE_DIR / "chroma_db"
+CHROMA_DB_DIR = Path(
+    os.getenv(
+        "CHROMA_DB_PATH",
+        str(VECTORSTORE_DIR / "chroma_db"),
+    )
+)
+CHROMA_COLLECTION_NAME = "stanford_docs"
 
 # --------------------------------------------------
 # Data Files
@@ -98,12 +107,6 @@ CHUNK_OVERLAP = 200
 EMBEDDING_MODEL = "text-embedding-3-small"
 
 # --------------------------------------------------
-# ChromaDB
-# --------------------------------------------------
-
-CHROMA_COLLECTION_NAME = "stanford_docs"
-
-# --------------------------------------------------
 # Retrieval (Future Use)
 # --------------------------------------------------
 
@@ -116,3 +119,14 @@ TOP_K_RESULTS = 5
 CHAT_MODEL = "gpt-4.1-mini"
 
 TEMPERATURE = 0.0
+# --------------------------------------------------
+# Redis Configuration
+# --------------------------------------------------
+
+REDIS_HOST = os.getenv("REDIS_HOST", "localhost")
+
+REDIS_PORT = int(os.getenv("REDIS_PORT", 6379))
+
+REDIS_DB = int(os.getenv("REDIS_DB", 0))
+
+REDIS_TTL_SECONDS = int(os.getenv("REDIS_TTL_SECONDS", 3600))

@@ -18,7 +18,7 @@ from urllib.parse import urljoin
 from bs4 import BeautifulSoup
 from playwright.sync_api import sync_playwright
 
-from config import (
+from app.core.config import (
     START_URL,
     MAX_PAGES,
     PAGE_TIMEOUT,

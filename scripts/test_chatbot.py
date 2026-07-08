@@ -1,4 +1,4 @@
-from rag.chatbot import StanfordChatbot
+from app.rag import StanfordChatbot
 
 chatbot = StanfordChatbot()
 

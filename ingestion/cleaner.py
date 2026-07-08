@@ -4,7 +4,7 @@ cleaner.py
 Validate and clean crawled Stanford documents before chunking.
 """
 
-from config import (
+from app.core.config import (
     RAW_DATA_FILE,
     CLEAN_DATA_FILE,
 )

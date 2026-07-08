@@ -1,4 +1,4 @@
-from rag.retriever import StanfordRetriever
+from app.rag.retrievers.stanford_retriever import StanfordRetriever
 
 retriever = StanfordRetriever(k=5)
 
