@@ -317,6 +317,21 @@ python -m app.cli
 ---
 ## Current Status
 
+✅ Phase 2 - Conversational AI
+
+Current Features
+
+- Hybrid Search
+- Streaming Responses
+- Redis Conversation Memory
+- Query Rewriting
+- Conversation Summarization
+- Expandable Citations
+- Docker Support
+
+  <img width="1920" height="1080" alt="{1BE6EE40-AF64-4833-8194-63864CF9617B}" src="https://github.com/user-attachments/assets/38bd8d10-aac2-4eb5-8a5f-1fa5e72602da" />
+
+✅ Phase 1 - Website Crawling and Indexing
 ### Sprint 1 — Complete
 
 - Website crawler
