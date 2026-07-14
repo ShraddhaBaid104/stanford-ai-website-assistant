@@ -9,3 +9,4 @@ __all__ = [
     "Citation",
     "RetrievedDocument",
 ]
+from .evaluation import EvaluationResult

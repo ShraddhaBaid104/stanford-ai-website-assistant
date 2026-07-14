@@ -1,19 +1,17 @@
 """
-Dependency providers for the Stanford AI Website Assistant.
+Dependency injection for ChatService.
 
-This module centralizes FastAPI dependency injection.
-
-Author: Shraddha Nahata
+Creates ONE ChatService instance for the
+entire FastAPI application.
 """
 
 from app.services.chat_service import ChatService
 
+chat_service = ChatService()
+
 
 def get_chat_service() -> ChatService:
     """
-    Returns the application's chat service.
-
-    FastAPI will inject this dependency wherever required.
+    Return the singleton ChatService.
     """
-
-    return ChatService()
+    return chat_service

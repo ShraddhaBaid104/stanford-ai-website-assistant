@@ -1,322 +1,246 @@
-# Stanford AI Website Assistant
+# 🎓 Stanford AI Website Assistant
+
+> A production-inspired Retrieval-Augmented Generation (RAG) assistant that answers questions about Stanford University using Hybrid Search, Conversation Memory, Redis Caching, Guardrails, and OpenAI GPT-4.1 Mini.
 
 ![Python](https://img.shields.io/badge/Python-3.12-blue)
-![LangChain](https://img.shields.io/badge/LangChain-1.x-green)
-![OpenAI](https://img.shields.io/badge/OpenAI-GPT--4.1--mini-black)
-![ChromaDB](https://img.shields.io/badge/VectorDB-Chroma-orange)
-![Status](https://img.shields.io/badge/Status-In%20Development-brightgreen)
-![License](https://img.shields.io/badge/License-MIT-blue)
-> A production-quality AI-powered website support assistant built using Retrieval-Augmented Generation (RAG), LangChain, OpenAI, ChromaDB, and modern AI engineering practices.
-
----
-![CI](https://github.com/ShraddhaBaid104/stanford-ai-website-assistant/actions/workflows/tests.yml/badge.svg)
-
-## Project Overview
-
-The Stanford AI Website Assistant is an intelligent chatbot designed to answer user questions using content crawled from the Stanford University website.
-
-Instead of relying solely on a Large Language Model (LLM), the assistant retrieves relevant website content from a vector database and generates grounded, citation-based responses.
-
-The project emphasizes **production-ready architecture**, modularity, scalability, and maintainability rather than tutorial-style implementation.
-
----
-## Why This Project?
-
-Many AI chatbots simply send user prompts directly to an LLM, often resulting in hallucinations or outdated responses.
-
-This project demonstrates how to build a production-quality Retrieval-Augmented Generation (RAG) system that answers questions using trusted Stanford University website content.
-
-The focus is on applying modern AI engineering practices, including:
-
-- Modular software architecture
-- Incremental document ingestion
-- Vector search
-- Grounded response generation
-- Production-ready code organization
-- Scalability and maintainability
-
-## Features
-
-- Production-grade website crawler using Playwright
-- HTML parsing and content cleaning with BeautifulSoup
-- Intelligent document chunking using LangChain
-- OpenAI Embeddings (`text-embedding-3-small`)
-- Persistent ChromaDB vector database
-- Incremental embedding pipeline
-- Semantic document retrieval
-- Prompt engineering for grounded responses
-- GPT-powered question answering
-- Source citation support
-- Modular and extensible architecture
+![FastAPI](https://img.shields.io/badge/FastAPI-Production-green)
+![Docker](https://img.shields.io/badge/Docker-Ready-blue)
+![Redis](https://img.shields.io/badge/Redis-Cache-red)
+![LangChain](https://img.shields.io/badge/LangChain-RAG-orange)
+![OpenAI](https://img.shields.io/badge/OpenAI-GPT--4.1--Mini-black)
+![License](https://img.shields.io/badge/License-MIT-success)
 
 ---
 
-## Project Architecture
+# 📖 Overview
 
-```text
-                    Stanford Website
-                            │
-                            ▼
-                  Playwright Web Crawler
-                            │
-                            ▼
-                    HTML Content Parser
-                            │
-                            ▼
-                   Document Cleaning
-                            │
-                            ▼
-                 Recursive Text Chunking
-                            │
-                            ▼
-                  OpenAI Embeddings
-                            │
-                            ▼
-                Persistent ChromaDB Store
-                            │
-                            ▼
-                      Retriever
-                            │
-                            ▼
-                    Prompt Builder
-                            │
-                            ▼
-                     GPT-4.1 Mini
-                            │
-                            ▼
-              Grounded Answer + Sources
+The **Stanford AI Website Assistant** is a production-inspired conversational AI application that answers questions about Stanford University using a Retrieval-Augmented Generation (RAG) pipeline.
+
+Instead of relying solely on an LLM, the assistant first retrieves relevant information from Stanford webpages before generating responses. This significantly improves factual accuracy, reduces hallucinations, and provides transparent citations for every answer.
+
+The project demonstrates modern AI engineering practices including:
+
+- Hybrid Retrieval
+- Conversation Memory
+- Query Rewriting
+- Response Streaming
+- Redis Caching
+- Citation Generation
+- Guardrails
+- Analytics
+- Evaluation Metrics
+- Docker Deployment
+
+This project was developed as a capstone project while learning Agentic AI Engineering and focuses on building production-quality AI systems rather than simple chatbot demonstrations.
+
+---
+
+# ✨ Features
+
+| Feature | Status |
+|----------|:------:|
+| Conversational RAG | ✅ |
+| Hybrid Retrieval (Vector + BM25 + RRF) | ✅ |
+| OpenAI GPT-4.1 Mini | ✅ |
+| OpenAI Embeddings | ✅ |
+| Conversation Memory | ✅ |
+| Query Rewriting | ✅ |
+| Conversation Summarization | ✅ |
+| Streaming Responses | ✅ |
+| Citation Generation | ✅ |
+| Response Validation | ✅ |
+| Guardrails | ✅ |
+| Redis Response Cache | ✅ |
+| Semantic Cache | ✅ |
+| Analytics Dashboard | ✅ |
+| Evaluation Metrics | ✅ |
+| FastAPI Backend | ✅ |
+| Streamlit Frontend | ✅ |
+| Docker Deployment | ✅ |
+
+---
+
+# 🏗 System Architecture
+
+![architecture.png](docs/images/architecture.png)
+
+```
+                 User
+                   │
+                   ▼
+          Streamlit Frontend
+                   │
+                   ▼
+             FastAPI Backend
+                   │
+                   ▼
+         Conversation Engine
+                   │
+     ┌─────────────┼──────────────┐
+     │             │              │
+     ▼             ▼              ▼
+Conversation   Guardrails     Analytics
+ Memory
+     │
+     ▼
+Query Rewriter
+     │
+     ▼
+Conversation Summary
+     │
+     ▼
+ Hybrid Retriever
+     │
+ ┌───┴───────────────┐
+ ▼                   ▼
+Vector Search     BM25 Search
+     │                   │
+     └──────┬────────────┘
+            ▼
+ Reciprocal Rank Fusion
+            ▼
+ Prompt Builder
+            ▼
+ OpenAI GPT-4.1 Mini
+            ▼
+ Response Validator
+            ▼
+ Citation Builder
+            ▼
+ Redis Cache
+            ▼
+        Final Response
 ```
 
 ---
 
-## Project Structure
+# 🛠 Technology Stack
 
-```text
-stanford-ai-assistant/
+| Layer | Technology |
+|--------|------------|
+| Backend | FastAPI |
+| Frontend | Streamlit |
+| LLM | OpenAI GPT-4.1 Mini |
+| Embeddings | OpenAI text-embedding-3-small |
+| Framework | LangChain |
+| Vector Database | ChromaDB |
+| Memory & Cache | Redis |
+| Web Crawling | Playwright |
+| Parsing | BeautifulSoup |
+| Containerization | Docker & Docker Compose |
+| Language | Python 3.12 |
 
-├── app/
-│   └── cli.py
+---
+
+# 📂 Project Structure
+
+```
+stanford-ai-assistant
 │
-├── common/
-│   ├── logger.py
-│   └── timer.py
+├── app
+│   ├── api
+│   ├── core
+│   ├── frontend
+│   ├── models
+│   ├── rag
+│   ├── schemas
+│   ├── services
+│   ├── dependencies
+│   └── main.py
 │
-├── data/
-│   ├── raw/
-│   └── processed/
+├── data
+│   ├── raw
+│   └── processed
 │
-├── ingestion/
-│   ├── crawler.py
-│   ├── parser.py
-│   ├── cleaner.py
-│   ├── chunker.py
-│   ├── embedder.py
-│   └── pipeline.py
-│
-├── rag/
-│   ├── retriever.py
-│   ├── prompt_builder.py
-│   └── chatbot.py
-│
-├── scripts/
-│
-├── tests/
-│
-├── vectorstore/
-│
-├── config.py
+├── scripts
+├── tests
+├── vectorstore
+├── Dockerfile
+├── docker-compose.yml
 ├── requirements.txt
 └── README.md
 ```
-## Architecture
-
-```mermaid
-flowchart TD
-
-A[Stanford Website]
-
-A --> B[Playwright Crawler]
-
-B --> C[HTML Parser]
-
-C --> D[Document Cleaner]
-
-D --> E[Chunk Builder]
-
-E --> F[OpenAI Embeddings]
-
-F --> G[Persistent ChromaDB]
-
-H[User Question] --> I[Retriever]
-
-I --> G
-
-I --> J[Prompt Builder]
-
-J --> K[GPT-4.1 Mini]
-
-K --> L[Grounded Answer]
-
-L --> M[Sources]
-```
----
-
-## Technology Stack
-
-| Category | Technology |
-|-----------|------------|
-| Language | Python 3.12 |
-| LLM | GPT-4.1 Mini |
-| Framework | LangChain 1.x |
-| Embeddings | OpenAI `text-embedding-3-small` |
-| Vector Database | ChromaDB |
-| Web Crawling | Playwright |
-| HTML Parsing | BeautifulSoup |
-| Environment | python-dotenv |
 
 ---
 
-## Current Features
+# 🔄 Retrieval Pipeline
 
-### Website Crawling
+The assistant follows a multi-stage conversational RAG workflow:
 
-- Internal Stanford link discovery
-- Configurable crawl depth
-- Configurable crawl delay
-- Timeout handling
-- Raw JSON export
-
-### Parsing
-
-- HTML cleaning
-- Script removal
-- Navigation removal
-- Footer/header removal
-- Clean text extraction
-
-### Cleaning
-
-- Duplicate removal
-- Empty page filtering
-- Metadata normalization
-- Minimum content filtering
-
-### Chunking
-
-- RecursiveCharacterTextSplitter
-- Stable document IDs
-- Stable chunk IDs
-- Metadata preservation
-- Debug JSON export
-
-### Embeddings
-
-- OpenAI Embeddings
-- Persistent ChromaDB
-- Incremental indexing
-- Automatic updates
-- Content hash comparison
-
-### Retrieval
-
-- Semantic similarity search
-- Top-k retrieval
-- Metadata preservation
-- Source URL extraction
-
-### Chatbot
-
-- Grounded responses
-- Context-only answering
-- Hallucination reduction
-- Source citations
+1. User submits a question.
+2. Conversation history is retrieved.
+3. Query is rewritten for improved retrieval.
+4. Conversation summary is generated (when required).
+5. Hybrid retrieval performs:
+   - Vector Search
+   - BM25 Search
+   - Reciprocal Rank Fusion
+6. Prompt is constructed.
+7. GPT-4.1 Mini generates a response.
+8. Response Validator checks the generated answer.
+9. Citations are generated.
+10. Response is cached.
+11. Analytics and evaluation metrics are recorded.
 
 ---
 
-## Installation
+# 🚀 Installation
 
-Clone the repository:
-
-```bash
-git clone https://github.com/<your-username>/stanford-ai-assistant.git
-cd stanford-ai-assistant
-```
-
-Create a virtual environment:
+Clone the repository
 
 ```bash
-python -m venv .venv
+git clone https://github.com/ShraddhaBaid104/stanford-ai-website-assistant.git
+
+cd stanford-ai-website-assistant
 ```
 
-Activate it:
-
-### Windows
+Install dependencies
 
 ```bash
-.venv\Scripts\activate
+pip install -r requirements.txt
 ```
 
-### macOS/Linux
+Create a `.env` file
 
-```bash
-source .venv/bin/activate
-```
-
-Install dependencies:
-
-```bash
-pip install -r requirements-dev.txt
-```
-
-Create a `.env` file:
-
-```text
+```env
 OPENAI_API_KEY=your_openai_api_key
+
+REDIS_HOST=redis
+
+REDIS_PORT=6379
 ```
 
 ---
 
-## Running the Pipeline
+# 🐳 Running with Docker
 
-Build the vector database:
+Build and start the application
 
 ```bash
-python -m scripts.build_vectorstore
+docker compose up --build
 ```
 
-Inspect ChromaDB:
+Backend
 
-```bash
-python -m scripts.inspect_chromadb
+```
+http://localhost:8000
 ```
 
-Test the retriever:
+Swagger Documentation
 
-```bash
-python -m scripts.test_retriever
+```
+http://localhost:8000/docs
 ```
 
-Test the prompt builder:
+Health Check
 
-```bash
-python -m scripts.test_prompt_builder
 ```
-
-Run the chatbot:
-
-```bash
-python -m scripts.test_chatbot
-```
-
-Launch the CLI:
-
-```bash
-python -m app.cli
+http://localhost:8000/health
 ```
 
 ---
-## Current Status
 
+<<<<<<< HEAD
 ✅ Phase 2 - Conversational AI
 
 Current Features
@@ -333,105 +257,140 @@ Current Features
 
 ✅ Phase 1 - Website Crawling and Indexing
 ### Sprint 1 — Complete
+=======
+# 💻 Running the Streamlit Frontend
+>>>>>>> b86f4b8 (Release v1.0.0: Production Stanford AI Website Assistant)
 
-- Website crawler
-- HTML parser
-- Content cleaner
-- Recursive chunking
-- Incremental embedding pipeline
-- Persistent ChromaDB
-- Semantic retrieval
-- Prompt builder
-- GPT-powered chatbot
+```bash
+cd app/frontend
 
-### Sprint 2 — In Progress
+streamlit run app.py
+```
 
-- Structured logging
-- Performance metrics
-- Conversation memory
-- FastAPI backend
+The Streamlit application will be available at
 
-## Roadmap
+```
+http://localhost:8501
+```
 
-### Sprint 1 ✅
+---
 
-- Environment setup
-- Website crawler
-- Parser
-- Cleaner
-- Chunk builder
-- OpenAI embeddings
-- Persistent ChromaDB
-- Retriever
-- Prompt builder
-- Chatbot
+# 📡 API Endpoints
 
-### Sprint 2 🚧
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| GET | / | Root endpoint |
+| GET | /health | Health status |
+| POST | /chat | Standard chat |
+| POST | /chat/stream | Streaming chat |
+| GET | /chat/last-citations | Retrieve citations |
+| GET | /analytics | Analytics summary |
+| GET | /metrics | Performance metrics |
+| GET | /evaluation | Evaluation statistics |
 
-- Logging
-- Performance metrics
-- Conversation memory
-- FastAPI backend
+---
 
-### Sprint 3
+# 💬 Example Questions
 
-- Streamlit admin dashboard
+- What is Stanford University known for?
+- How do I apply to Stanford?
+- Tell me about Stanford research.
+- What financial aid options are available?
+- What undergraduate programs are offered?
+- What are Stanford's admission requirements?
+- Tell me about Stanford's history.
+
+---
+
+# 📊 Evaluation
+
+The assistant records runtime metrics for every request, including:
+
+- Retrieval latency
+- LLM generation time
+- Total response time
+- Retrieved document count
+- Citation count
+- Average retrieval score
+- Best retrieval score
+- Cache hits
+- Response statistics
+
+These metrics can be used to monitor and improve system performance.
+
+---
+
+# 📸 Screenshots
+
+## Streamlit Frontend
+
+
+![img_1.png](docs/images/chat.png)
+---
+
+## FastAPI Swagger Documentation
+
+![img_2.png](docs/images/swagger.png)
+---
+
+## Analytics Dashboard
+
+> ![img_3.png](docs/images/analytics.png)
+---
+
+# 🎯 Future Improvements
+
 - PostgreSQL + pgvector
-- Redis memory
-- Docker support
-
-### Sprint 4
-
-- LangGraph agents
-- Tool routing
-- Multi-agent workflows
-
-### Sprint 5
-
-- Guardrails
-- Prompt injection detection
-- Hallucination checking
-- Groundedness verification
-
-### Sprint 6
-
-- RAGAS evaluation
-- LangSmith monitoring
-- Automated benchmarks
+- Multi-user authentication
+- Admin dashboard
+- User feedback collection
+- Observability using Prometheus & Grafana
+- Kubernetes deployment
+- Multi-website support
+- Continuous evaluation pipeline
 
 ---
 
-## Future Improvements
+# 📚 Lessons Learned
 
-- Hybrid Search (BM25 + Vector Search)
-- Query Rewriting
-- Citation Verification
-- Multi-turn Conversation Memory
-- AI Guardrails
-- Fine-tuning
-- Monitoring Dashboard
-- Kubernetes Deployment
+This project provided hands-on experience with:
 
----
-
-## Learning Objectives
-
-This project demonstrates practical experience with:
-
-- Retrieval-Augmented Generation (RAG)
-- AI Engineering
-- Prompt Engineering
-- Vector Databases
-- LangChain
-- OpenAI APIs
-- Production Python
-- Information Retrieval
-- LLM Application Development
+- Production-oriented RAG architectures
+- Hybrid retrieval techniques
+- LangChain orchestration
+- Redis caching strategies
+- Prompt engineering
+- FastAPI backend development
+- Docker containerization
+- Building explainable AI systems with citations
+- Designing modular AI applications
 
 ---
 
-## License
+# 👩‍💻 Author
 
-This project is intended for educational and portfolio purposes.
+**Shraddha Nahata**
 
+MBA (Finance) | B.Sc. (Economics)
+
+Agentic AI Engineer | AI Educator
+
+GitHub:
+
+https://github.com/ShraddhaBaid104
+
+
+
+---
+
+# 📄 License
+
+This project is licensed under the MIT License.
+
+<<<<<<< HEAD
 Stanford University content remains the property of Stanford University.
+=======
+---
+
+# ⭐ If you found this project useful, consider giving it a star!
+>>>>>>> b86f4b8 (Release v1.0.0: Production Stanford AI Website Assistant)

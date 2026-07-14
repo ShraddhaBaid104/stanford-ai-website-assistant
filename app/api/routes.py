@@ -14,6 +14,9 @@ from fastapi import (
     HTTPException,
     status,
 )
+from app.services.dashboard_service import DashboardService
+
+dashboard = DashboardService()
 
 from app.core.exceptions import StanfordAssistantError
 from app.core.logging import logger
@@ -145,3 +148,10 @@ def stream_chat(
             "X-Accel-Buffering": "no",
         },
     )
+@router.get(
+    "/analytics",
+    summary="Analytics Dashboard",
+)
+def analytics():
+
+    return dashboard.get_dashboard()

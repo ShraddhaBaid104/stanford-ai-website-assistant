@@ -9,24 +9,22 @@ Author: Shraddha Nahata
 from fastapi import FastAPI
 
 from app.api.routes import router
+from contextlib import asynccontextmanager
+
+from app.dependencies.chat import chat_service
+
+@asynccontextmanager
+async def lifespan(app):
+
+    # Force initialization
+    _ = chat_service
+
+    yield
+
 
 app = FastAPI(
     title="Stanford AI Website Assistant",
-    description="""
-A production-grade Retrieval-Augmented Generation (RAG) assistant
-for answering Stanford University website queries using semantic
-search, ChromaDB, OpenAI embeddings, and GPT models.
-""",
-    version="1.0.0",
-    contact={
-        "name": "Shraddha Nahata",
-        "url": "https://github.com/ShraddhaBaid104/stanford-ai-website-assistant",
-    },
-    license_info={
-        "name": "MIT License",
-    },
-    docs_url="/docs",
-    redoc_url="/redoc",
+    lifespan=lifespan,
 )
 
 app.include_router(router)

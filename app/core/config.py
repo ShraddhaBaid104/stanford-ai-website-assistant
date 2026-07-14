@@ -130,3 +130,25 @@ REDIS_PORT = int(os.getenv("REDIS_PORT", 6379))
 REDIS_DB = int(os.getenv("REDIS_DB", 0))
 
 REDIS_TTL_SECONDS = int(os.getenv("REDIS_TTL_SECONDS", 3600))
+# --------------------------------------------------
+# Semantic Cache Configuration
+# --------------------------------------------------
+
+SEMANTIC_CACHE_TTL = int(
+    os.getenv(
+        "SEMANTIC_CACHE_TTL",
+        86400,  # 24 hours
+    )
+)
+
+SEMANTIC_CACHE_THRESHOLD = float(
+    os.getenv(
+        "SEMANTIC_CACHE_THRESHOLD",
+        0.90,
+    )
+)
+
+SEMANTIC_CACHE_PREFIX = os.getenv(
+    "SEMANTIC_CACHE_PREFIX",
+    "semantic:",
+)

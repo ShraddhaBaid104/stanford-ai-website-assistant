@@ -26,3 +26,6 @@ class CitationService:
             session_id,
             [],
         )
+
+
+citation_service = CitationService()
