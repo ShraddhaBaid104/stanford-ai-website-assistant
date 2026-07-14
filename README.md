@@ -240,26 +240,7 @@ http://localhost:8000/health
 
 ---
 
-<<<<<<< HEAD
-✅ Phase 2 - Conversational AI
-
-Current Features
-
-- Hybrid Search
-- Streaming Responses
-- Redis Conversation Memory
-- Query Rewriting
-- Conversation Summarization
-- Expandable Citations
-- Docker Support
-
-  <img width="1920" height="1080" alt="{1BE6EE40-AF64-4833-8194-63864CF9617B}" src="https://github.com/user-attachments/assets/38bd8d10-aac2-4eb5-8a5f-1fa5e72602da" />
-
-✅ Phase 1 - Website Crawling and Indexing
-### Sprint 1 — Complete
-=======
 # 💻 Running the Streamlit Frontend
->>>>>>> b86f4b8 (Release v1.0.0: Production Stanford AI Website Assistant)
 
 ```bash
 cd app/frontend
@@ -324,18 +305,17 @@ These metrics can be used to monitor and improve system performance.
 
 ## Streamlit Frontend
 
-
-![img_1.png](docs/images/chat.png)
+![chat.png](docs/images/chat.png)
 ---
 
 ## FastAPI Swagger Documentation
-
-![img_2.png](docs/images/swagger.png)
+![swagger.png](docs/images/swagger.png)
 ---
 
 ## Analytics Dashboard
 
-> ![img_3.png](docs/images/analytics.png)
+![analytics.png](docs/images/analytics.png)
+
 ---
 
 # 🎯 Future Improvements
@@ -379,18 +359,12 @@ GitHub:
 
 https://github.com/ShraddhaBaid104
 
-
-
 ---
 
 # 📄 License
 
 This project is licensed under the MIT License.
 
-<<<<<<< HEAD
-Stanford University content remains the property of Stanford University.
-=======
 ---
 
 # ⭐ If you found this project useful, consider giving it a star!
->>>>>>> b86f4b8 (Release v1.0.0: Production Stanford AI Website Assistant)
